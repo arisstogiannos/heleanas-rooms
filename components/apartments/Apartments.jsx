@@ -61,7 +61,7 @@ const Apartments = () => {
       ref={containerRef}
       className="h-[400vh] relative   "
     >
-      <div className="h-screen w-full sticky top-0 flex flex-col text-white ">
+      <div className="h-[100dvh] w-full sticky top-0 flex flex-col text-white ">
       <Intro containerRef={containerRef}/>
       <Rooms scrollContainer={containerRef}/>
       </div>

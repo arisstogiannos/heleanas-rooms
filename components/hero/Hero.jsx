@@ -14,15 +14,15 @@ const Hero = () => {
     <section className="myContainer   h-[85vh] rounded-3xl overflow-hidden relative ">
       <video
         src="main-bg-video.mp4"
-        className="object-cover h-full w-full absolute top-0 left-0  -z-10"
+        className="object-cover h-full w-full absolute top-0 left-0  "
         autoPlay
         muted
         alt='sea video'
         loop
         preload="true"
       ></video>
-      <div className="h-full w-full absolute top-0 left-0 bg-black/60 -z-10"></div>
-
+      <div className="h-full w-full absolute top-0 left-0 bg-black/60 "></div>
+<div className="absolute top-0 left-0">
       <div className=" flex w-full mt-20 ">
         <div className="w-1/3 flex flex-col justify-between  pt-5 pb-4 lg:pt-8 lg:pb-6 xl:pt-12 xl:pb-10">
           <hr className="border-t-4 border-t-mwhite rounded-tr-full rounded-br-full " />
@@ -96,6 +96,7 @@ const Hero = () => {
         </svg>
     
        
+      </div>
       </div>
     </section>
   );

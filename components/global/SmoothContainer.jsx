@@ -21,7 +21,7 @@ export default function SmoothContainer({
     }
     , []);
   return (
-    <div className='scroller  h-[85vh] overflow-hidden'>{children}</div>
+    <div className='scroller   overflow-hidden'>{children}</div>
   )
 }
 

@@ -314,8 +314,8 @@ const Rooms = ({ scrollContainer }) => {
                                     ease: [0, 0.55, 0.45, 1],
                                   }
                             }
-                            onAnimationComplete={(def)=>(currRoom== 1&&(def.opacity==1&&gsap.set('.colorChanger',{backgroundColor:'transparent'})))}
-                            onAnimationStart={(def)=>(currRoom== 0&&(def.opacity==0&&gsap.set('.colorChanger',{backgroundColor:'#918671'})))}
+                            // onAnimationComplete={(def)=>(currRoom== 1&&(def.opacity==1&&gsap.set('.colorChanger',{backgroundColor:'transparent'})))}
+                            // onAnimationStart={(def)=>(currRoom== 0&&(def.opacity==0&&gsap.set('.colorChanger',{backgroundColor:'#918671'})))}
                             
                           >
                             {word}
