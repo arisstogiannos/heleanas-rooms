@@ -1,4 +1,5 @@
 import { useMotionValueEvent, useScroll, motion } from "framer-motion";
+import gsap from "gsap";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 
@@ -39,6 +40,7 @@ const Rooms = ({ scrollContainer }) => {
   const [currRoom, setCurrRoom] = useState(-1);
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     setCurrRoom(Math.floor(latest * 5));
+    
   });
   return (
     <div className="absolute  h-screen top-0 w-full ">
@@ -282,7 +284,7 @@ const Rooms = ({ scrollContainer }) => {
                   {r.title}
                 </h2>
                 <div className="absolute top-full translate-y-1/2 lg:translate-y-0 lg:left-full lg:-translate-x-10 lg:top-0">
-                  <p className=" left-0 top-0 w-full lg:w-[600px] text-xl lg:text-3xl   leading-normal font-normal   h-fit relative z-50   ">
+                  <p className=" left-0 top-0 w-full lg:w-[600px] text-xl lg:text-3xl    leading-normal font-normal   h-fit relative z-50   ">
                     {r.desc.split(" ").map((word, index) => {
                       return (
                         <span
@@ -312,6 +314,9 @@ const Rooms = ({ scrollContainer }) => {
                                     ease: [0, 0.55, 0.45, 1],
                                   }
                             }
+                            onAnimationComplete={(def)=>(currRoom== 1&&(def.opacity==1&&gsap.set('.colorChanger',{backgroundColor:'transparent'})))}
+                            onAnimationStart={(def)=>(currRoom== 0&&(def.opacity==0&&gsap.set('.colorChanger',{backgroundColor:'#918671'})))}
+                            
                           >
                             {word}
                           </motion.span>
