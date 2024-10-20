@@ -2,26 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html::-webkit-scrollbar{
+  width: 0.3vw;
 }
+html::-webkit-scrollbar-thumb{
+  background-color: #303030;
+}
+html::-webkit-scrollbar{
+  background-color: #DBDDE0;
+}
+::selection{
+  color: lightblue;
+}
+@layer components {
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+ 
+  
+  .myContainer{
+      @apply  w-[360px] xsm:w-[380px] sm:w-[620px] md:w-[740px] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] 3xl:w-[1700px] mx-auto  ;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+ 
+  
+  
   }
-}

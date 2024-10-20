@@ -7,9 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      colors:{
+        'mwhite':'#DBDDE0',
+        'mblack':'#08090A',
+        'mblue' : '#00A8B7',
+        'mBrown' : '#918671',
+      },
+    
+      screens:{
+        'xsm' : '400px',
+        '3xl':'1700px'
       },
     },
   },
