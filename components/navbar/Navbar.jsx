@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,9 +17,9 @@ const Navbar = () => {
   }, [isOpen]);
   const navlinks = [
     { title: "home", href: "/" },
-    { title: "about", href: "/" },
+    { title: "about", href: "/#about" },
     { title: "rooms", href: "/rooms" },
-    { title: "guide", href: "/" },
+    { title: "guide", href: "/#guide" },
   ];
   const sociallinks = [
     { title: "instagram", href: "/" },
@@ -28,7 +30,7 @@ const Navbar = () => {
   ];
   return (
     <nav className="flex justify-between items-center myContainer py-8 ">
-      <p className="capitalize text-lg sm:text-xl lg:text-3xl z-[1000]">
+      <p className="capitalize text-xl font-medium sm:text-xl lg:text-3xl z-[1000]">
         Heleana's rooms
       </p>
       <div
@@ -64,7 +66,7 @@ const Navbar = () => {
         initial={{ opacity: 0 }}
         className={`w-screen ${
           !isOpen ? "pointer-events-none" : "pointer-events-auto"
-        } px-6 xl:px-24 h-screen flex flex-col xl:flex-row  bg-mwhite fixed top-0 left-0 z-[900]  `}
+        } px-6 xl:px-24 h-[100svh] xl:h-screen flex flex-col xl:flex-row  bg-mwhite fixed top-0 left-0 z-[900]  `}
       >
         <ul className="text-7xl xl:text-9xl text-black flex flex-col gap-5 mt-auto xl:pb-10 capitalize">
           {navlinks.map((link, i) => {
@@ -72,6 +74,7 @@ const Navbar = () => {
               <motion.span key={i} className="group overflow-hidden ">
                 <motion.li
                   className="origin-left "
+                  onClick={()=>{setIsOpen(false)}}
                   animate={
                     isOpen
                       ? {
@@ -94,16 +97,16 @@ const Navbar = () => {
                         }
                   }
                 >
-                  <motion.a className="relative" href={link.href}>
-                    <motion.span className="absolute top-1/2 left-0 translate-y-full -z-40 bg-mBrown  w-full scale-x-0 h-2 group-hover:scale-x-100 origin-left transition-transform duration-700"></motion.span>
+                  <Link className="relative" href={link.href} >
+                    <motion.span  className="absolute top-1/2 left-0 translate-y-full -z-40 bg-mBrown  w-full scale-x-0 h-2 group-hover:scale-x-100 origin-left transition-transform duration-700"></motion.span>
                     {link.title}
-                  </motion.a>
+                  </Link>
                 </motion.li>
               </motion.span>
             );
           })}
         </ul>
-        <ul className="text-2xl text-black/60  max-xl:flex-wrap flex font-medium  gap-x-8 gap-y-4 mt-24 xl:mt-auto ml-auto pb-10 capitalize">
+        <ul className="text-xl  xl:text-2xl text-black/60  max-xl:flex-wrap flex font-medium  gap-x-8 gap-y-4 mt-24 xl:mt-auto ml-auto pb-5 xl:pb-10 capitalize">
           {sociallinks.map((link, i) => {
             return (
               <motion.span key={i} className="overflow-hidden ">

@@ -3,7 +3,10 @@ import React from 'react'
 
 const Rooms = () => {
   return (
-    <Apartments/>
+   
+
+      <Apartments/>
+   
   )
 }
 

@@ -90,7 +90,7 @@ const Testimonials = () => {
     },[])
   return (
     <section ref={containerRef} className="w-full overflow-x-hidden  bg-mwhite py-32 flex flex-col">
-      <h2  className="capitalize text-4xl xl:text-7xl mx-auto">
+      <h2  className="capitalize text-4xl xl:text-7xl mx-auto lg:mb-10">
         what do people say
       </h2>
       <div className="flex flex-col gap-0 my-20">
@@ -99,18 +99,22 @@ const Testimonials = () => {
         [1,1,1,1,1,1,1].map((i,k)=>{
             return(
       <div key={k} className="flex gap-10  cont1">
-        <div className="xl:h-80 xl:w-[440px] border-2 rounded-3xl border-black flex flex-col gap-7 py-5 px-7">
+        <div className="xl:h-80 xl:w-[440px] border-2 rounded-3xl border-black flex flex-col  py-5 px-7">
           <div className="w-full flex gap-5 font-medium text-lg xl:text-2xl items-center">
             <div className="rounded-full size-10 bg-gray-500"></div>
+            <div>
             <p>Angela Sabani</p>
+            <p style={nunito.style} className="text-sm text-black/50">Octomber,2024</p>
+
+            </div>
           </div>
-          <p style={nunito.style} className="text-base xl:text-xl">
+          <p style={nunito.style} className="text-base xl:text-xl mt-5 xl:mt-8">
             Lorem ipsum dolor sit amet consectetur. Posuere quisque neque arcu
             semper. Lectus aliquam ullamcorper tempor nulla convallis interdum.{" "}
           </p>
           <div>
             <svg
-              width="306"
+              width="200"
               height="80"
               viewBox="0 0 456 80"
               fill="none"
@@ -149,21 +153,27 @@ const Testimonials = () => {
         [1,1,1,1,1,1,1].map((i,k)=>{
             return(
       <div key={k} className="flex gap-10 my-20">
-        <div className="h-80 w-[440px] border-2 rounded-3xl border-black flex flex-col gap-7 py-5 px-7">
+        <div className="xl:h-80 xl:w-[440px] border-2 rounded-3xl border-black flex flex-col  py-5 px-7">
           <div className="w-full flex gap-5 font-medium text-2xl items-center">
             <div className="rounded-full size-10 bg-gray-500"></div>
+            <div>
             <p>Angela Sabani</p>
+            <p style={nunito.style} className="text-sm text-black/50">Octomber,2024</p>
+
+            </div>
           </div>
-          <p style={nunito.style} className="text-xl">
+          <p style={nunito.style} className="text-base xl:text-xl mt-5 xl:mt-8">
             Lorem ipsum dolor sit amet consectetur. Posuere quisque neque arcu
             semper. Lectus aliquam ullamcorper tempor nulla convallis interdum.{" "}
           </p>
           <div>
             <svg
-              width="306"
+              width="200"
               height="80"
               viewBox="0 0 456 80"
               fill="none"
+              className="scale-75 origin-left xl:scale-100"
+
               xmlns="http://www.w3.org/2000/svg"
             >
               <path

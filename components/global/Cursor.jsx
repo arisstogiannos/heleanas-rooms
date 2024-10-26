@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Nunito } from "next/font/google";
+import {AnimatePresence, motion} from 'framer-motion'
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -14,7 +15,7 @@ export default function Cursor() {
   const [inRoom, setInRoom] = useState(false);
 
   useEffect(() => {
-    const array = document.getElementsByClassName("slider");
+    const array = document.getElementsByClassName("sliderCursor");
     const slider = document.querySelector(".slider");
     const room = document.querySelector(".room");
     if(room){
@@ -87,13 +88,16 @@ export default function Cursor() {
       className={` ${
         inSlider ? "size-20 cursor-none bg-mwhite border-0 " : ""
       } ${
-        inRoom ? "w-fit h-fit cursor-none translate-x-3 -translate-y-14 rounded-xl border-0 border-b-2       " : ""
+        inRoom ? " w-32 h-32  border-2 -translate-y-2/3   " : ""
       }${
         (!inRoom)&&(!inSlider) ? "size-7 " : ""
-      }  text-base text-white font-semibold text-center uppercase flex justify-center items-center  fixed  border border-mblack  pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 z-[900] filter transition-transform duration-300 ease-in-out `}
-    >{
-      inRoom&&<span className="capitalize text-black text-xl font-medium text-nowrap px-4 py-2">- Take a look -</span>
-    }
+      }  text-base text-white font-semibold text-center uppercase xl:flex justify-center items-center  fixed hidden  border border-[#000] pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 z-[900] filter transition-[height,width]  duration-1000 ease-in-out `}
+    >
+      <AnimatePresence mode="wait">
+      {inRoom&&<motion.span key={1} animate={{clipPath: "inset(0 0 0 0)" ,transition:{duration:1}}} exit={{clipPath:"inset(0 50% 0 50%)",transition:{duration:1}}} className="capitalize text-[#000] text-xl font-semibold text-nowrap px-4 py-2 transition duration-1000 ease-in-out ">Take a look</motion.span>}
+      </AnimatePresence>
+    
+
       {inSlider && (
         <div className="flex items-center justify-center">
           <svg

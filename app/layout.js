@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={playfair.style} className="bg-mwhite ">
+      <body style={playfair.style} className="bg-mwhite  ">
         <SmoothContainer>
         <Navbar />
 

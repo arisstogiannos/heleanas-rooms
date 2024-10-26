@@ -16,7 +16,7 @@ const FooterMobile = () => {
     { title: "tripadvisor", href: "/" },
   ];
   return (
-    <footer className=" bg-mBrown w-full text-white xl:hidden flex flex-col">
+    <footer className=" bg-mBrown w-full text-white lg:hidden flex flex-col myContainer overflow-hidden">
       <p className="capitalize text-5xl mx-auto  border-b-2 w-full text-center py-10">
         Heleana's rooms
       </p>

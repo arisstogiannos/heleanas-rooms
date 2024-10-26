@@ -42,7 +42,7 @@ const Intro = ({containerRef}) => {
             scrollTrigger: {
               trigger: containerR,
             //   pin: true,
-              start:"top+=400px center",
+              start:"top+=350px center",
               end:"top+=600px center",
               markers: false, // Show markers for debugging
               toggleActions: "play reverse play reverse"
@@ -69,7 +69,7 @@ const text2 ="The apartment is located in the heart of the village,right opposit
   return (
     <div className="myContainer">
       <h1 style={paris.style} className="capitalize text-5xl 3xl:text-8xl my-10 2xl:my-32 mx-auto word">the apartments</h1>
-        <div className="w-full mx-auto flex flex-col text-base 2xl:text-2xl">
+        <div className="w-full mx-auto flex flex-col xl:flex-row text-base 2xl:text-2xl">
         <p
             className="     leading-normal   h-fit relative   "
           >

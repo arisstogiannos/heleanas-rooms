@@ -1,6 +1,6 @@
 'use client'
 import gsap from 'gsap'
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 
 const Loader = () => {
 const comp = useRef(null)
@@ -11,6 +11,7 @@ useLayoutEffect(()=>{
         tl.fromTo(
             ".wordIntro",
             {
+              duration:0,
               y: 60,
               opacity: 0,
             },
@@ -54,7 +55,7 @@ useLayoutEffect(()=>{
   return (
     <div id='introCont' ref={comp} className='flex justify-center items-center w-screen h-screen fixed top-0 left-0 bg-mwhite  z-[1000]'>
          <p
-            className=" capitalize text-7xl text-black    leading-normal   h-fit relative   "
+            className=" capitalize text-6xl lg:text-7xl text-black    leading-normal   h-fit relative   "
           >
             {text1.split(" ").map((word, index) => {
               return (
@@ -65,7 +66,7 @@ useLayoutEffect(()=>{
                   }
                 >
                   <span
-                    className="wordIntro "
+                    className="wordIntro  "
                     key={index}
                   >
                     {word}

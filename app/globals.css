@@ -20,7 +20,7 @@ html::-webkit-scrollbar{
  
   
   .myContainer{
-      @apply  w-[360px] xsm:w-[380px] sm:w-[620px] md:w-[740px] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] 3xl:w-[1700px] mx-auto  ;
+      @apply  w-[330px] xsm:w-[380px] sm:w-[620px] md:w-[740px] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] 3xl:w-[1700px] mx-auto  ;
   }
  
   
