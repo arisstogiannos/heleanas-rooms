@@ -5,7 +5,7 @@ import { React, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const Gallery = ({rooms,color}) => {
   const galleryRef = useRef(null);
-  const inviewGallery = useInView(galleryRef, { amount: 0.2, once: false });
+  const inviewGallery = useInView(galleryRef, { amount: 0.4, once: false });
   const [count, setCount] = useState(1);
   const scrollRef = useRef(null); // Use a ref to keep track of the DragScroll instance
   const [screenSize, setScreenSize] = useState(1);
@@ -18,6 +18,7 @@ const Gallery = ({rooms,color}) => {
 
       updateScreenSize(); // Set initial value
       window.addEventListener('resize', updateScreenSize); // Update value on window resize
+      window.addEventListener('load', updateScreenSize); // Update value on window resize
 
       return () => window.removeEventListener('resize', updateScreenSize); // Cleanup on component unmount
     }
@@ -28,6 +29,7 @@ const Gallery = ({rooms,color}) => {
     if (typeof window !== 'undefined') {
       const updateScreenSize = () => {
         setScreenSize(window.innerWidth < 768 ? 0.7 : 1);
+        window.addEventListener('load', updateScreenSize);
         if(scrollRef.current){
 
           scrollRef.current.calculate()
@@ -91,7 +93,7 @@ const Gallery = ({rooms,color}) => {
         for (let i = 0; i < this.items.length; i++) {
           const itemWidth = parseFloat(this.items[i].style.width); // Convert the width from string to number
     if (!isNaN(itemWidth)) {
-      this.wrapWidth += (itemWidth*screenSize + (screenSize===1?240:80)); // Add the width of each item and the gap/margin between items
+      this.wrapWidth += (itemWidth*screenSize + (screenSize===1?240:180)); // Add the width of each item and the gap/margin between items
       console.log(`Item ${i} width:`, itemWidth);
     }
         }
@@ -125,33 +127,10 @@ const Gallery = ({rooms,color}) => {
       move() {
         this.progress = clamp(this.progress, 0, this.maxScroll);
         setCount(Math.floor((this.progress / (this.wrapWidth/this.items.length)) + 1));
-        // setCount((prev)=>{
-        //   let sum=0
-        //   for(let i =0;i<prev;i++){
-        //     sum+=(this.items[i].clientWidth+112)
-        //   }
-        //   if(this.progress>sum){
-        //     return prev
-        //   }
-        // });
+    
       }
 
-      moveNext(count) {
-        if (count < rooms.length) {
-        count===1?this.progress += (((this.items[count-1].clientWidth) +160+60)):this.progress += (((this.items[count-1].clientWidth) +160));
-        console.log(count-1) // Move right by one item
-        this.move(); // Update the view
-        }
-       
-      }
-      
-      movePrev(count) {
-        if (count-1 < rooms.length) {
-          this.progress -= (((this.items[count-1].clientWidth) +56));
-          console.log(count-1) // Move right by one item
-          this.move(); // Update the view
-          }
-      }
+
 
       events() {
         this.el.addEventListener("resize", this.calculate);
@@ -186,7 +165,7 @@ const Gallery = ({rooms,color}) => {
 
         const speed = Math.abs(this.x - this.oldX);
         this.oldX = this.x;
-        // console.log(1)
+        console.log('rafgal')
         this.scale = lerp(this.scale, 1 - Math.min(speed * 0.05, 0.3), 0.05);
         this.items.forEach((item) => {
           item.style.transform = `scale(${this.scale})`;
@@ -228,13 +207,22 @@ const Gallery = ({rooms,color}) => {
     };
   }, []);
 
+  useEffect(()=>{
+    if(inviewGallery){
+      scrollRef.current.startRaf();
+    }else{
+      scrollRef.current.stopRaf();
+    }
+
+  },[inviewGallery])
+
   return (
     <div
       ref={galleryRef}
       style={{backgroundColor:color}}
       className="    mt-20 2xl:mt-40 sliderGallery cursor-none overflow-hidden flex flex-col justify-center lg:justify-center  h-[80vh] md:h-[50vh] lg:h-screen relative sliderCursor"
     >
-      <h3 className="text-black text-9xl hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase">
+      <h3 className="text-mwhite text-9xl hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 uppercase">
         gallery
       </h3>
       <div className=" flex items-center gap-20 md:gap-60  lg:mt-0 slider-wrapperGallery  z-10  ">
@@ -242,7 +230,7 @@ const Gallery = ({rooms,color}) => {
           <div
             key={i}
             style={{ width: `${p.w*screenSize}px`, height: `${p.h*screenSize}px` }}
-            className="select-none pointer-events-none relative slider-itemGallery first-of-type:ml-20 last-of-type:mr-20 "
+            className="select-none pointer-events-none relative slider-itemGallery first-of-type:ml-20 md:last-of-type:mr-20 "
           >
             <Image src={p.src} width={p.w} height={p.h} alt={`Place ${i+ 1}`} className=" object-contain" />
             <div className="w-full h-full absolute left-0 top-0 bg-black/20"></div>

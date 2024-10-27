@@ -92,7 +92,7 @@ const Apartments = () => {
       handleTouchMove(e) {
         if (!this.dragging) return;
         const y = e.clientY || e.touches[0].clientY;
-        if (window.innerWidth < 1024) {
+        if (window.innerWidth < 1400) {
           this.progress = this.startY - y;
         }
         if(currRef.current==0 ){

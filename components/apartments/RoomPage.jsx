@@ -164,7 +164,7 @@ const RoomPage = ({title,text1,text2, num,photos,color}) => {
                 </svg>
               </span>
             </div>
-            <div className="text-4xl xl:text-5xl cursor-pointer text-[#2A769A] border-b-4 border-b-[#2A769A] py-3  capitalize flex items-center gap-16 w-fit h-fit">
+            <div style={{color:color,borderBottomColor:color}} className="text-4xl xl:text-5xl cursor-pointer  border-b-4 border-b-[#2A769A] py-3  capitalize flex items-center gap-16 w-fit h-fit">
               book now{" "}
               <svg
                 className="mt-3 mr-2"
@@ -176,7 +176,7 @@ const RoomPage = ({title,text1,text2, num,photos,color}) => {
               >
                 <path
                   d="M28.2148 1.78223C28.2148 0.9538 27.5433 0.282227 26.7148 0.282226L13.2148 0.282227C12.3864 0.282227 11.7148 0.953799 11.7148 1.78223C11.7148 2.61065 12.3864 3.28223 13.2148 3.28223L25.2148 3.28223L25.2148 15.2822C25.2148 16.1107 25.8864 16.7822 26.7148 16.7822C27.5433 16.7822 28.2148 16.1107 28.2148 15.2822L28.2148 1.78223ZM2.7755 27.8429L27.7755 2.84289L25.6542 0.721567L0.654184 25.7216L2.7755 27.8429Z"
-                  fill="#2A769A"
+                  fill={color}
                 />
               </svg>
             </div>
@@ -344,7 +344,7 @@ const RoomPage = ({title,text1,text2, num,photos,color}) => {
               </svg>
             </span>
           </div>
-          <div className="text-4xl w-full md:w-1/3 mt-3 cursor-pointer text-[#2A769A] border-b-4 border-b-[#2A769A] py-3  capitalize flex items-center justify-between px-2  h-fit">
+          <div style={{color:color,borderBottomColor:color}} className="text-4xl w-full md:w-1/3 mt-3 cursor-pointer  border-b-4  py-3  capitalize flex items-center justify-between px-2  h-fit">
             book now{" "}
             <svg
               className="mt-3 mr-2"
@@ -356,7 +356,7 @@ const RoomPage = ({title,text1,text2, num,photos,color}) => {
             >
               <path
                 d="M28.2148 1.78223C28.2148 0.9538 27.5433 0.282227 26.7148 0.282226L13.2148 0.282227C12.3864 0.282227 11.7148 0.953799 11.7148 1.78223C11.7148 2.61065 12.3864 3.28223 13.2148 3.28223L25.2148 3.28223L25.2148 15.2822C25.2148 16.1107 25.8864 16.7822 26.7148 16.7822C27.5433 16.7822 28.2148 16.1107 28.2148 15.2822L28.2148 1.78223ZM2.7755 27.8429L27.7755 2.84289L25.6542 0.721567L0.654184 25.7216L2.7755 27.8429Z"
-                fill="#2A769A"
+                fill={color}
               />
             </svg>
           </div>

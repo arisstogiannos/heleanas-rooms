@@ -71,10 +71,13 @@ const Guide = () => {
         this.x = 0;
         this.scale = 1;
         this.dragging = false;
+        this.rafId = null;
+
         this.bindings();
         this.calculate();
         this.events();
-        this.raf();
+        // this.raf();
+        this.startRaf();
       }
 
       bindings() {
@@ -96,10 +99,10 @@ const Guide = () => {
 
       calculate() {
         this.progress=0;
-        if (window.innerWidth > 1024) {
-          this.wrapWidth = this.items[0].clientWidth * this.items.length * 2.5;
+        if (window.innerWidth >= 1024) {
+          this.wrapWidth = (700+ 200) * this.items.length ;
         } else {
-          this.wrapWidth = (350+100) * this.items.length ;
+          this.wrapWidth = (350+120) * this.items.length ;
         }
         this.wrap.style.width = `${this.wrapWidth}px`;
         this.maxScroll = this.wrapWidth - this.el.clientWidth;
@@ -118,7 +121,7 @@ const Guide = () => {
       handleTouchMove(e) {
         if (!this.dragging) return;
         const x = e.clientX || e.touches[0].clientX;
-        if (window.innerWidth > 1024) {
+        if (window.innerWidth > 1400) {
           this.progress += (this.startX - x) * 2.5;
         } else {
           this.progress += (this.startX - x) * 5.5;
@@ -135,7 +138,6 @@ const Guide = () => {
        
           this.progress = clamp(this.progress, 0, this.maxScroll);
        
-          
         
         setCount(Math.floor(this.progress / (this.items[0].clientWidth+100)) + 1);
       }
@@ -143,7 +145,7 @@ const Guide = () => {
       moveNext() {
         setCount((prevCount) => {
           if (prevCount < places.length) {
-            this.progress += ((this.items[0].clientWidth+112)/2);
+            this.progress += ((this.items[0].clientWidth+112));
             console.log(this.items[0].clientWidth) // Move right by one item
             this.move(); // Update the view
             return prevCount + 1; // Increment count
@@ -155,7 +157,7 @@ const Guide = () => {
       movePrev() {
         setCount((prevCount) => {
           if (prevCount > 1) {
-            this.progress -= ((this.items[0].clientWidth+112)/2); // Move left by one item
+            this.progress -= ((this.items[0].clientWidth+112)); // Move left by one item
             this.move(); // Update the view
             return prevCount - 1; // Decrement count
           }
@@ -181,19 +183,32 @@ const Guide = () => {
         this.playrate = this.x / this.maxScroll;
 
         this.wrap.style.transform = `translateX(${-this.x}px)`;
-
+        
         const speed = Math.abs(this.x - this.oldX);
         this.oldX = this.x;
 
         this.scale = lerp(this.scale, 1 - Math.min(speed * 0.012, 0.2), 0.05);
-
+        console.log('guide')
         this.items.forEach((item) => {
           item.style.transform = `scale(${this.scale})`;
         });
 
-        requestAnimationFrame(this.raf);
+        this.rafId=requestAnimationFrame(this.raf);
+      }
+      startRaf() {
+        if (!this.rafId) {
+          this.rafId = requestAnimationFrame(this.raf);
+        }
+      }
+
+      stopRaf() {
+        if (this.rafId) {
+          cancelAnimationFrame(this.rafId);
+          this.rafId = null;
+        }
       }
     }
+
 
     dragScrollRef.current = new DragScroll({
       el: ".slider",
@@ -211,43 +226,53 @@ const Guide = () => {
       window.removeEventListener("mousedown", dragScroll.handleTouchStart);
       window.removeEventListener("mousemove", dragScroll.handleTouchMove);
       window.removeEventListener("mouseup", dragScroll.handleTouchEnd);
+      document.body.removeEventListener("mouseleave", dragScroll.handleTouchEnd);
+      dragScroll.stopRaf();
     };
   }, []);
+
+  useEffect(()=>{
+    
+    if(inview){
+      dragScrollRef.current.startRaf();
+    }else{
+      dragScrollRef.current.stopRaf();
+    }
+
+  },[inview])
 
   return (
     <section
     ref={ref}
       id="guide"
-      className="w-full flex flex-col slider cursor-none sliderCursor max-lg:h-screen overflow-hidden bg-[#1c5169]"
+      className="w-full flex flex-col slider cursor-none sliderCursor max-2xl:h-screen overflow-hidden bg-[#1c5169]"
     >
-      <div className="w-full ml-5 xl:ml-20 mt-0  ">
-        <div className="flex gap-28 xl:gap-48 mt-20 slider-wrapper ">
+      <div className="w-full ml-5 2xl:ml-20 mt-0  ">
+        <div className="flex gap-28 2xl:gap-48 mt-20 slider-wrapper ">
           {places.map((p, i) => (
             <motion.div
             initial={{clipPath: "inset(0 100% 0 0)",}}
             animate={inview?{
-              clipPath: "inset(0 0 0 0)"
-            }:{clipPath: "inset(0 100% 0 0)",}}
-            transition={{duration:1,delay:i*0.3}}
-            viewport={{amount:0.2,once:false}}
+              clipPath: "inset(0 0 0 0)",transition:{duration:1,delay:i*0.3}
+            }:{clipPath: "inset(0 100% 0 0)",transition:{duration:1,delay:(places.length-i)*0.3}}}
               key={i}
-              className="w-[350px] h-fit xl:w-[700px] xl:h-fit select-none pointer-events-none relative slider-item"
+              className="w-[350px] h-fit lg:w-[700px]  select-none pointer-events-none relative slider-item"
             >
               <Image
                 src={p.src}
                 alt="places"
                 width={700}
                 height={500}
-                className="object-cover w-[350px] h-[245px] xl:w-[700px] xl:h-[490px] "
+                className="object-cover w-[350px] h-[245px] lg:w-[700px] lg:h-[490px] "
               />
-              <div className="w-[350px] h-[245px] xl:w-[700px] xl:h-[490px]  absolute left-0 top-0 bg-black/20"></div>
-              <div className="my-2 text-white text-xl xl:text-4xl font-medium flex justify-between items-center">
+              <div className="w-[350px] h-[245px] lg:w-[700px] lg:h-[490px]  absolute left-0 top-0 bg-black/20"></div>
+              <div className="my-2 text-white lg:mt-4 text-xl lg:text-4xl 2xl:mt-3 font-medium flex justify-between items-center">
                 <h3 className="capitalize">{p.t}</h3>
                 <p>{p.m}</p>
               </div>
               <p
                 style={nunito.style}
-                className="first-letter:uppercase xl:text-xl xl:w-3/4 text-white font-normal"
+                className="first-letter:uppercase lg:text-xl lg:mt-5 2xl:mt-2 lg:w-3/4 text-white font-normal"
               >
                 {p.d}
               </p>
@@ -255,12 +280,13 @@ const Guide = () => {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center w-full gap-8 mt-auto lg:hidden">
+      <div className="flex justify-center items-center w-full gap-8 mt-auto xl:hidden">
         <Image
           onClick={() => dragScrollRef.current.movePrev()}
           src={"/places/arrow.svg"}
           width={100}
           height={100}
+          alt="arrowL"
         />
         <p className="text-white text-5xl leading-none">{count}/6</p>
         <Image
@@ -268,13 +294,14 @@ const Guide = () => {
           src={"/places/arrowR.svg"}
           width={100}
           height={100}
+          alt="arrowR"
         />
       </div>
       <div className="pointer-events-none w-full flex justify-between border-t-white border-t-2 mt-20 xl:mt-32 capitalize items-center py-10 xl:px-20">
-        <h2 className="text-5xl xl:text-8xl mx-auto lg:mx-0 text-white text-nowrap">
+        <h2 className="text-5xl lg:text-8xl mx-auto xl:mx-0 text-white text-nowrap">
           places to go
         </h2>
-        <div className="hidden md:block">
+        <div className="hidden xl:block">
           <p className="text-white text-8xl">{count}/6</p>
         </div>
       </div>

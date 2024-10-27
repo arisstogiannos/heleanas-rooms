@@ -8,12 +8,12 @@ export default function SmoothContainer({
 
     const p = usePathname();
     useEffect(() => {
-
-    if(window.innerWidth>1280){
+      let locomotiveScroll
+    if(window.innerWidth>1400){
 
       (async () => {
         const LocomotiveScroll = (await import("locomotive-scroll")).default;
-        const locomotiveScroll = new LocomotiveScroll({
+         locomotiveScroll = new LocomotiveScroll({
           smooth: true,
           lenisOptions:{smoothWheel:true,duration:2,wheelMultiplier:0.8,smoothTouch:false,},
           
@@ -23,7 +23,7 @@ export default function SmoothContainer({
     }else{
       (async () => {
         const LocomotiveScroll = (await import("locomotive-scroll")).default;
-        const locomotiveScroll = new LocomotiveScroll({
+         locomotiveScroll = new LocomotiveScroll({
           smooth:false,
           lenisOptions:{smoothWheel:false,smoothTouch:false,},
           
@@ -31,10 +31,13 @@ export default function SmoothContainer({
         // setLoco(locomotiveScroll);
       })();
     }
+    return ()=> {
+      if (locomotiveScroll) locomotiveScroll.destroy();
+  }
     }
-    , []);
+    , [p]);
     useEffect(()=>{
-      if(p.includes('rooms')){
+      if(p.endsWith('rooms')){
   
         document.body.style.backgroundColor='#918671'
       }else{

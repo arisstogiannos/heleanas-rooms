@@ -19,17 +19,17 @@ useLayoutEffect(()=>{
               y: 0,
               delay:0.2,
               opacity: 1,
-              duration: 1.3, // Adjust the duration for each word's entrance
+              duration: 0.9, // Adjust the duration for each word's entrance
               ease: "circ.out",
               stagger: 0.1, // Adjust the delay between each word's appearance
             }
           ).to(
             ".wordIntro",
             {
-             delay:0.5,
+             delay:0.3,
               opacity: 0,
               filter: 'blur(4px)',
-              duration: 1.7, // Adjust the duration for each word's entrance
+              duration: 1.5, // Adjust the duration for each word's entrance
               ease: "circ.out",
               stagger: 0.13, // Adjust the delay between each word's appearance
             }
@@ -38,7 +38,7 @@ useLayoutEffect(()=>{
             {
                 
                  opacity: 0,
-                 duration: 1.3, // Adjust the duration for each word's entrance
+                 duration: 0.5, // Adjust the duration for each word's entrance
                  ease: "none",
                  display:'none'
                }
@@ -55,7 +55,7 @@ useLayoutEffect(()=>{
   return (
     <div id='introCont' ref={comp} className='flex justify-center items-center w-screen h-screen fixed top-0 left-0 bg-mwhite  z-[1000]'>
          <p
-            className=" capitalize text-6xl lg:text-7xl text-black    leading-normal   h-fit relative   "
+            className=" capitalize text-6xl lg:text-7xl text-black text-center   leading-normal   h-fit relative   "
           >
             {text1.split(" ").map((word, index) => {
               return (

@@ -62,44 +62,21 @@ const Testimonials = () => {
               
             }
           );
-        //   const tltext2 = gsap.timeline({
-        //     scrollTrigger: {
-        //       trigger: containerR,
-        //     //   pin: true,
-        //       start:"top+=400px center",
-        //       end:"top+=600px center",
-        //       markers: false, // Show markers for debugging
-        //       toggleActions: "play reverse play reverse"
-        //     },
-        //   });
-        //   tltext2.fromTo(
-        //     ".word2",
-        //     {
-        //       y: 40,
-        //       opacity: 0,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3, // Adjust the duration for each word's entrance
-        //       ease: "circ.out",
-        //       stagger: 0.01, // Adjust the delay between each word's appearance
-        //     }
-        //   );
+       
            
     },[])
   return (
     <section ref={containerRef} className="w-full overflow-x-hidden  bg-mwhite py-32 flex flex-col">
-      <h2  className="capitalize text-4xl xl:text-7xl mx-auto lg:mb-10">
-        what do people say
+      <h2  className="capitalize text-4xl lg:text-7xl  mx-auto lg:mb-10">
+        what people say
       </h2>
       <div className="flex flex-col gap-0 my-20">
       <div className="w-full flex  gap-20">
       {
         [1,1,1,1,1,1,1].map((i,k)=>{
             return(
-      <div key={k} className="flex gap-10  cont1">
-        <div className="xl:h-80 xl:w-[440px] border-2 rounded-3xl border-black flex flex-col  py-5 px-7">
+      <div key={k} className="flex gap-10 -translate-x-1/2 cont1">
+        <div className=" lg:w-[440px] border-2 rounded-3xl border-black flex flex-col  py-5 px-7">
           <div className="w-full flex gap-5 font-medium text-lg xl:text-2xl items-center">
             <div className="rounded-full size-10 bg-gray-500"></div>
             <div>
@@ -108,7 +85,7 @@ const Testimonials = () => {
 
             </div>
           </div>
-          <p style={nunito.style} className="text-base xl:text-xl mt-5 xl:mt-8">
+          <p style={nunito.style} className="text-base lg:text-xl mt-5 xl:mt-8">
             Lorem ipsum dolor sit amet consectetur. Posuere quisque neque arcu
             semper. Lectus aliquam ullamcorper tempor nulla convallis interdum.{" "}
           </p>
@@ -153,8 +130,8 @@ const Testimonials = () => {
         [1,1,1,1,1,1,1].map((i,k)=>{
             return(
       <div key={k} className="flex gap-10 my-20">
-        <div className="xl:h-80 xl:w-[440px] border-2 rounded-3xl border-black flex flex-col  py-5 px-7">
-          <div className="w-full flex gap-5 font-medium text-2xl items-center">
+        <div className=" lg:w-[440px] border-2 rounded-3xl border-black flex flex-col  py-5 px-7">
+          <div className="w-full flex gap-5 font-medium text-lg items-center">
             <div className="rounded-full size-10 bg-gray-500"></div>
             <div>
             <p>Angela Sabani</p>
@@ -162,7 +139,7 @@ const Testimonials = () => {
 
             </div>
           </div>
-          <p style={nunito.style} className="text-base xl:text-xl mt-5 xl:mt-8">
+          <p style={nunito.style} className="text-base lg:text-xl mt-5 xl:mt-8">
             Lorem ipsum dolor sit amet consectetur. Posuere quisque neque arcu
             semper. Lectus aliquam ullamcorper tempor nulla convallis interdum.{" "}
           </p>

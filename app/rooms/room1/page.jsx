@@ -8,8 +8,8 @@ const Room1 = () => {
   const rooms = [
     {
       src: "/apartments/room1/room1-2.webp",
-      w: 360,
-      h: 480,
+      w: 360* 1.2,
+      h: 480* 1.2,
       m: "230m",
     },
     {
@@ -26,8 +26,8 @@ const Room1 = () => {
     },
     {
       src: "/apartments/room1/room1-1.webp",
-      w: 400,
-      h: 300,
+      w: 400* 1.4,
+      h: 300* 1.4,
       m: "230m",
     },
     {
@@ -38,8 +38,8 @@ const Room1 = () => {
     },
     {
       src: "/apartments/room1/room1-6.webp",
-      w: 360,
-      h: 480,
+      w: 360* 1.3,
+      h: 480* 1.3,
       m: "230m",
     },
   ];

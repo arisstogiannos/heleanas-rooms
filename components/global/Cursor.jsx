@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Nunito } from "next/font/google";
 import {AnimatePresence, motion} from 'framer-motion'
+import { usePathname } from "next/navigation";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -13,6 +14,7 @@ export default function Cursor() {
   const cursor = useRef(null);
   const [inSlider, setInSlider] = useState(false);
   const [inRoom, setInRoom] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const array = document.getElementsByClassName("sliderCursor");
@@ -55,7 +57,7 @@ export default function Cursor() {
         room.removeEventListener("mouseleave", ()=>(setInRoom(false)));
       }
     };
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const moveCursorX = gsap.quickTo(cursor.current, "left", {
@@ -94,41 +96,43 @@ export default function Cursor() {
       }  text-base text-white font-semibold text-center uppercase xl:flex justify-center items-center  fixed hidden  border border-[#000] pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 z-[900] filter transition-[height,width]  duration-1000 ease-in-out `}
     >
       <AnimatePresence mode="wait">
-      {inRoom&&<motion.span key={1} animate={{clipPath: "inset(0 0 0 0)" ,transition:{duration:1}}} exit={{clipPath:"inset(0 50% 0 50%)",transition:{duration:1}}} className="capitalize text-[#000] text-xl font-semibold text-nowrap px-4 py-2 transition duration-1000 ease-in-out ">Take a look</motion.span>}
-      </AnimatePresence>
+      {inRoom&&<motion.span key={1} initial={{clipPath:"inset(0 50% 0 50%)"}} animate={{clipPath: "inset(0 0 0 0)" ,transition:{duration:1}}} exit={{clipPath:"inset(0 50% 0 50%)",transition:{duration:0.5}}} className="capitalize text-[#000] text-xl font-semibold text-nowrap px-4 py-2 transition duration-1000 ease-in-out ">Take a look</motion.span>}
     
 
       {inSlider && (
-        <div className="flex items-center justify-center">
-          <svg
+        <motion.div key={2} className="flex items-center justify-center">
+          <motion.svg
+          key={4} initial={{opacity:0}} animate={{opacity:1 ,transition:{duration:1}}} exit={{opacity:0,transition:{duration:0.5}}}
             width="10"
             height="12"
             viewBox="0 0 10 12"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="rotate-180 scale-150"
-          >
+            >
             <path
               d="M10.0001 6L0.0001 0.226497V11.7735L10.0001 6Z"
               fill="#dbdde0"
-            />
-          </svg>
-          <span className="px-6 text-black">drag</span>
-          <svg
+              />
+          </motion.svg>
+          <motion.span key={3} initial={{clipPath:"inset(0 50% 0 50%)"}} animate={{clipPath: "inset(0 0 0 0)" ,transition:{duration:1}}} exit={{clipPath:"inset(0 50% 0 50%)",transition:{duration:0.5}}} className="capitalize text-[#000] text-xl font-semibold text-nowrap px-6  transition duration-1000 ease-in-out ">drag</motion.span>
+          <motion.svg
+          key={5} initial={{opacity:0}} animate={{opacity:1 ,transition:{duration:1}}} exit={{opacity:0,transition:{duration:0.5}}}
             width="10"
             height="12"
             viewBox="0 0 10 12"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="scale-150"
-          >
+            >
             <path
               d="M10.0001 6L0.0001 0.226497V11.7735L10.0001 6Z"
               fill="#dbdde0"
-            />
-          </svg>
-        </div>
+              />
+          </motion.svg>
+        </motion.div>
       )}{" "}
+      </AnimatePresence>
     </div>
   );
 }
