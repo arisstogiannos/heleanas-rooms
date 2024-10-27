@@ -1,4 +1,4 @@
-import localFont from "next/font/local";
+import Loader from "@/components/global/Loader";
 import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
@@ -21,6 +21,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body style={playfair.style} className="bg-mwhite  ">
+      <Loader/>
+
         <SmoothContainer>
         <Navbar />
 

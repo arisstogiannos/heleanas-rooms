@@ -30,12 +30,12 @@ const Navbar = () => {
   ];
   return (
     <nav className="flex justify-between items-center myContainer py-8 ">
-      <p className="capitalize text-xl font-medium sm:text-xl lg:text-3xl z-[1000]">
+      <p className="capitalize text-xl font-medium sm:text-xl lg:text-3xl z-[910]">
         Heleana's rooms
       </p>
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="w-9 h-4 sm:w-10 sm:h-5 lg:w-12 lg:h-6 relative group cursor-pointer z-[1000]"
+        className="w-9 h-4 sm:w-10 sm:h-5 lg:w-12 lg:h-6 relative group cursor-pointer z-[910]"
       >
         <span
           className={`absolute right-0 top-0 block w-3/4 h-[2px] lg:h-[3px] bg-black rounded-full transition-transform translate-y-0 origin-left duration-300 ease-in-out  ${

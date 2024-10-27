@@ -39,7 +39,7 @@ export default function SmoothContainer({
     useEffect(()=>{
       if(p.endsWith('rooms')){
   
-        document.body.style.backgroundColor='#918671'
+        document.body.style.backgroundColor='#9d8977'
       }else{
         
         document.body.style.backgroundColor='#DBDDE0'
