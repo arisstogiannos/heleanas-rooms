@@ -15,24 +15,28 @@ const Rooms = ({ scrollContainer, setCurr }) => {
       src: "/apartments/room1/room1-7.webp",
       desc: "The studio has a private bathroom and its own front door. In the studio you will find 2 single beds that they are designed to fit perfectly together, so you have the option to use them as double bed. The fridge and the kitchen equipment allows you to prepare breakfast or cold dishes during the day.",
       bgcolor: "#6c492d",
+      price:'60$/night'
     },
     {
       title: "room 2",
       src: "/apartments/room2/room2-1.webp",
       desc: "This apartment is comprised of 1 living room, 2 separate bedrooms and 1 bathroom with a shower. Guests will find a stovetop, a refrigerator, kitchenware and an oven in the fully equipped kitchen. The unit offers 4 beds.",
       bgcolor: "#735238",
+      price:'80$/night'
     },
     {
       title: "room 3",
       src: "/apartments/room3/room3-1.webp",
       desc: "This apartment is comprised of 1 bedroom for 2 people and 1 bathroom with a shower. Guests will find a stovetop, a refrigerator, kitchenware and an oven in the fully equipped kitchen. ",
       bgcolor: "#7e6048",
+      price:'90$/night'
     },
     {
       title: "room 4",
       src: "/apartments/room4/room4-1.webp",
       desc: "The studio has a private bathroom and its own front door. In the studio you will a special made wooden double bed with hidden lights. It has been renovated (2019) with personal work of my family and decorated with art made by corfiot artists.",
       bgcolor: "#886e58",
+      price:'80$/night'
     },
   ];
 
@@ -58,7 +62,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
         style={{
           clipPath: currRoom - 1 >= 0 ? "inset(0 0 0 0)" : "inset(100% 0 0 0)",
         }}
-        className="absolute transition-all duration-500 delay-500 -translate-x-full left-full top-0"
+        className={`absolute transition-all duration-500 ${currRoom-1===0?'delay-1000':'delay-100'} -translate-x-full left-full top-0`}
         viewBox="0 0 351 1080"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -249,7 +253,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
           fillOpacity="0.05"
         />
       </svg>
-      <div className="h-screen   flex flex-col 2xl:flex-row items-center xl:items-start mt-10 xsm:mt-20 2xl:mt-0 2xl:items-center 2xl:justify-start justify-start myContainer max-md:overflow-hidden  ">
+      <div className="h-screen   flex flex-col 2xl:flex-row items-center xl:items-start mt-5 xsm:mt-10 2xl:mt-0 2xl:items-center 2xl:justify-start justify-start myContainer max-md:overflow-hidden  ">
         <a
           href={`/rooms/room${currRoom}`}
           className={`w-full h-full  absolute top-0 left-0 2xl:block hidden z-50 room  cursor-pointer ${
@@ -268,7 +272,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                         : "inset(100% 0 0 0)",
                   }}
                   key={i}
-                  className="transition-all duration-700 ease-out  w-full h-full absolute top-0 left-0"
+                  className={`transition-all ${currRoom-1===0?'delay-1000':''} duration-700 ease-out  w-full h-full absolute top-0 left-0`}
                 >
                   <Image
                     priority
@@ -287,16 +291,16 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                           ? "inset(0 0 0 0)"
                           : "inset(100% 0 0 0)",
                     }}
-                    className="transition-all duration-700 ease-out absolute top-0 left-0 w-full h-full bg-black/30"
+                    className={`transition-all ${currRoom-1===0?'delay-1000':''} duration-700 ease-out absolute top-0 left-0 w-full h-full bg-black/30`}
                   ></div>
                 </div>
                 <h2
                   style={{ opacity: currRoom - 1 == i ? 1 : 0 }}
-                  className="transition-all duration-700 z-50 absolute font-medium top-full -translate-y-1/2  2xl:-translate-y-2/3 2xl:-translate-x-9 left-5 xsm:left-0 text-6xl lg:text-9xl xl:text-8xl 2xl:text-9xl capitalize"
+                  className={`transition-all ${currRoom-1===0?'delay-1000':''} duration-700 z-50 absolute font-medium top-full -translate-y-1/2  2xl:-translate-y-2/3 2xl:-translate-x-9 left-5 xsm:left-0 text-6xl lg:text-9xl xl:text-8xl 2xl:text-9xl capitalize`}
                 >
                   {r.title}
                 </h2>
-                <div className="absolute top-full lg:translate-y-full xl:translate-y-1/2 translate-y-1/4 2xl:translate-y-0 2xl:left-full 2xl:-translate-x-10 2xl:top-0">
+                <div className="absolute top-full lg:translate-y-full xl:translate-y-1/2 translate-y-[20%] 2xl:translate-y-0 2xl:left-full 2xl:-translate-x-10 2xl:top-0 flex flex-col">
                   <p
                     style={nunito.style}
                     className=" left-5 xsm:left-0 top-0 w-[90%] xsm:w-full xl:w-[700px] text-lg xsm:text-xl lg:text-3xl    leading-normal font-normal   h-fit relative z-50   "
@@ -318,7 +322,12 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                               opacity: currRoom - 1 === i ? 1 : 0,
                             }}
                             transition={
-                              currRoom - 1 === i
+                              currRoom-1===0?{
+                                duration: 0.7,
+                                delay: 1.3 + 0.009 * index,
+                                ease: [0, 0.55, 0.45, 1],
+                              }
+                              :currRoom - 1 === i
                                 ? {
                                     duration: 0.7,
                                     delay: 0.6 + 0.009 * index,
@@ -339,17 +348,43 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                       );
                     })}
                   </p>
+                    <motion.span style={nunito.style}  className=" mt-5  ml-5 xsm:ml-0 text-2xl capitalize font-medium "
+                            key={i}
+                            initial={{ y: 40 }}
+                            animate={{
+                              y: currRoom - 1 === i ? 0 : 40,
+                              opacity: currRoom - 1 === i ? 1 : 0,
+                            }}
+                            transition={
+                              currRoom-1===0?{
+                                duration: 0.7,
+                                delay: 2 ,
+                                ease: [0, 0.55, 0.45, 1],
+                              }
+                              :currRoom - 1 === i
+                                ? {
+                                    duration: 0.7,
+                                    delay: 1.1 ,
+                                    ease: [0, 0.55, 0.45, 1],
+                                  }
+                                : {
+                                    duration: 0.7,
+                                    delay: 0,
+                                    ease: [0, 0.55, 0.45, 1],
+                                  }
+                            }>{r.price}</motion.span>
                 </div>
               </div>
             );
           })}
         </div>
-        <div style={{ display: currRoom <= 0 ? "none" : "" }} className="flex h-fit justify-between flex-row-reverse  items-end 2xl:hidden md:w-[364px] xsm:mt-0 mt-3 md:mt-20 xl:mt-0 w-full  lg:w-[900px]  xl:w-[728px] ">
+        <motion.div   style={{ display: currRoom <= 0 ? "none" : "" }} className="flex h-fit justify-between flex-row-reverse  items-end 2xl:hidden md:w-[364px] xsm:mt-0 mt-3 md:mt-20 xl:mt-0 w-full  lg:w-[900px]  xl:w-[728px] ">
 
-        <a
+        <motion.a
+        initial={{y:60,opacity:0}} transition={{ duration:0.5,delay:2.4,ease: [0, 0.55, 0.45, 1]}} animate={currRoom-1>=0?{y:0,opacity:1}:{y:40,opacity:0}}
           href={`/rooms/room${currRoom}`}
           style={nunito.style}
-          className="text-xl xsm:text-2xl lg:text-4xl  cursor-pointer text-black border-b-[2px] xsm:border-b-[3px] font-medium border-b-black pt-2 pb-0   capitalize flex items-center gap-8 xsm:gap-16 w-fit h-fit xl:mt-72   xsm:mt-80 mt-72  lg:mr-auto 2xl:hidden z-10"
+          className="text-xl xsm:text-2xl lg:text-4xl  cursor-pointer text-black border-b-[2px] xsm:border-b-[3px] font-medium border-b-black pt-2 pb-0   capitalize flex items-center gap-8 xsm:gap-16 w-fit h-fit xl:mt-72   xsm:mt-[350px] mt-72  lg:mr-auto 2xl:hidden z-10"
           >
           take a look{" "}
           <svg
@@ -365,9 +400,9 @@ const Rooms = ({ scrollContainer, setCurr }) => {
               fill="black"
               />
           </svg>
-        </a>
-              <p  style={nunito.style} className="text-xl xsm:text-2xl md:text-4xl text-black capitalize">80$/night</p>
-              </div>
+        </motion.a>
+              {/* <motion.p initial={{y:60,opacity:0}} transition={{ duration:0.5,delay:2.2,ease: [0, 0.55, 0.45, 1]}} animate={currRoom-1>=0?{y:0,opacity:1}:{y:40,opacity:0}} style={nunito.style} className="text-xl xsm:text-2xl md:text-4xl text-black capitalize">80$/night</motion.p> */}
+              </motion.div>
       </div>
       {rooms.map((r, i) => {
         return (
@@ -378,7 +413,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
               clipPath:
                 currRoom - 1 >= i ? "inset(0 0 0 0)" : "inset(100% 0 0 0)",
             }}
-            className="absolute top-0 w-full h-screen left-0   -z-50 transition-all duration-700 delay-300"
+            className={`absolute top-0 w-full h-screen left-0   -z-50 transition-all duration-700 ${currRoom-1===0?'delay-700':'delay-300'} `}
           ></div>
         );
       })}

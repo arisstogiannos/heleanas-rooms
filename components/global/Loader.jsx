@@ -2,10 +2,12 @@
 import gsap from 'gsap'
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
 
-const Loader = () => {
+const Loader = ({setFlag}) => {
 const comp = useRef(null)
 
 useLayoutEffect(()=>{
+  const vid = document.getElementById('my-video')
+  vid.addEventListener('canplaythrough',()=>console.log('videoloaded loader'))
     let ctx = gsap.context(()=>{
         const tl = gsap.timeline()
         tl.fromTo(
@@ -42,7 +44,7 @@ useLayoutEffect(()=>{
                  ease: "none",
                  display:'none'
                }
-          )
+          ).then(()=>setFlag(false))
       
         
     },comp)
@@ -53,28 +55,26 @@ useLayoutEffect(()=>{
 
     const text1 ='a place to rememeber';
   return (
-    <div id='introCont' ref={comp} className='flex justify-center items-center w-screen h-screen fixed top-0 left-0 bg-mwhite  z-[1000]'>
-         <p
-            className=" capitalize text-6xl lg:text-7xl text-black text-center   leading-normal   h-fit relative   "
+    <div
+      id='introCont'
+      ref={comp}
+      className='flex justify-center items-center w-screen h-screen fixed top-0 left-0 bg-mwhite z-[1000]'
+    >
+      <p className="capitalize text-6xl lg:text-7xl text-black text-center leading-normal h-fit relative">
+        {text1.split(" ").map((word, index) => (
+          <span
+            key={index}
+            className="mr-3 relative overflow-hidden inline-flex"
           >
-            {text1.split(" ").map((word, index) => {
-              return (
-                <span
-                  key={index}
-                  className={
-                    " mr-3  relative overflow-hidden inline-flex"
-                  }
-                >
-                  <span
-                    className="wordIntro  "
-                    key={index}
-                  >
-                    {word}
-                  </span>
-                </span>
-              );
-            })}
-          </p>
+            <span
+              className="wordIntro opacity-0 transform translate-y-[60px]" // Ensure initial hidden state
+              key={index}
+            >
+              {word}
+            </span>
+          </span>
+        ))}
+      </p>
     </div>
   )
 }

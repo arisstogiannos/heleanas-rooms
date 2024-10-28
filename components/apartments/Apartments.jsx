@@ -53,7 +53,7 @@ const Apartments = () => {
         },
         {
           duration: 1,
-          backgroundColor: "#9d8977",
+          backgroundColor: "#7e6048",
           ease: "none",
         }
       );

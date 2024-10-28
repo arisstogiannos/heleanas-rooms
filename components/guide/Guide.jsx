@@ -240,12 +240,12 @@ const Guide = () => {
     }
 
   },[inview])
-
+//bg-[#1c5169]
   return (
     <section
     ref={ref}
       id="guide"
-      className="w-full flex flex-col slider cursor-none sliderCursor max-2xl:h-screen overflow-hidden bg-[#1c5169]"
+      className="w-full flex flex-col slider cursor-none sliderCursor max-2xl:h-screen overflow-hidden bg-mBrown"
     >
       <div className="w-full ml-5 2xl:ml-20 mt-0  ">
         <div className="flex gap-28 2xl:gap-48 mt-20 slider-wrapper ">

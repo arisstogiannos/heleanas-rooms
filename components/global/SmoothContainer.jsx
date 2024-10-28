@@ -1,12 +1,14 @@
 'use client'
 import { usePathname } from 'next/navigation';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import Loader from './Loader';
 
 export default function SmoothContainer({
     children,
   }) {
 
     const p = usePathname();
+    const [flag,setFlag] = useState(true);
     useEffect(() => {
       let locomotiveScroll
     if(window.innerWidth>1400){
@@ -39,7 +41,7 @@ export default function SmoothContainer({
     useEffect(()=>{
       if(p.endsWith('rooms')){
   
-        document.body.style.backgroundColor='#9d8977'
+        document.body.style.backgroundColor='#7e6048'
       }else{
         
         document.body.style.backgroundColor='#DBDDE0'
@@ -48,7 +50,9 @@ export default function SmoothContainer({
 
     },[p])
   return (
-    <div className='     scroller h-[100svh]'>{children}</div>
+    <div className='     scroller h-[100svh]'>
+{      ((!p.includes('/rooms'))&&flag)&&<Loader setFlag={setFlag}/>}{
+      children}</div>
   )
 }
 

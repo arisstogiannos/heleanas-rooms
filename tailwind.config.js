@@ -11,7 +11,7 @@ module.exports = {
         'mwhite':'#DBDDE0',
         'mblack':'#08090A',
         'mblue' : '#00A8B7',
-        'mBrown' : '#9d8977',
+        'mBrown' : '#7e6048',
       },
       animation: {
         'spin-slow':'spin 22s linear infinite',

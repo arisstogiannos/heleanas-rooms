@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -25,8 +24,14 @@ const Navbar = () => {
     { title: "instagram", href: "https://www.instagram.com/helenas_rooms/" },
     { title: "facebook", href: "https://www.facebook.com/Helenasrooms/" },
     { title: "airbnb", href: "https://www.airbnb.gr/users/show/1721132" },
-    { title: "booking", href: "https://www.booking.com/hotel/gr/helena-39-s-rooms.html?aid=318615&label=New_English_EN_GR_26745747865-cgHJznX2Y6eGVkzaC%2AB6owS637942138514%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-195219801865%3Alp9061579%3Ali%3Adec%3Adm%3Aag26745747865%3Acmp394169905&sid=a8d48116767371049b86f6347e60f62d&dest_id=-819264;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1730043583;srpvid=63656e1c577300b9;type=total;ucfs=1&" },
-    { title: "tripadvisor", href: "https://www.tripadvisor.com/Hotel_Review-g676294-d19578908-Reviews-Helena_s_Rooms-Kassiopi_Corfu_Ionian_Islands.html" },
+    {
+      title: "booking",
+      href: "https://www.booking.com/hotel/gr/helena-39-s-rooms.html?aid=318615&label=New_English_EN_GR_26745747865-cgHJznX2Y6eGVkzaC%2AB6owS637942138514%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-195219801865%3Alp9061579%3Ali%3Adec%3Adm%3Aag26745747865%3Acmp394169905&sid=a8d48116767371049b86f6347e60f62d&dest_id=-819264;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1730043583;srpvid=63656e1c577300b9;type=total;ucfs=1&",
+    },
+    {
+      title: "tripadvisor",
+      href: "https://www.tripadvisor.com/Hotel_Review-g676294-d19578908-Reviews-Helena_s_Rooms-Kassiopi_Corfu_Ionian_Islands.html",
+    },
   ];
   return (
     <nav className="flex justify-between items-center myContainer py-8 ">
@@ -101,7 +106,7 @@ const Navbar = () => {
                     <motion.span  className="absolute top-1/2 left-0 translate-y-full -z-40 bg-mBrown  w-full scale-x-0 h-2 group-hover:scale-x-100 origin-left transition-transform duration-700"></motion.span>
                     {link.title}
                   </Link>
-                </motion.li>
+              </motion.li>
               </motion.span>
             );
           })}

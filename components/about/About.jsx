@@ -53,7 +53,7 @@ const About = () => {
         >
           <Image
             src={"/about/balcony.jpg"}
-            alt="iamge"
+            alt="balcony showing view of the apartments"
             width={1024}
             height={768}
             className="w-[342px] h-[211px]  2xl:w-[770px] 2xl:h-[459px] object-cover absolute top-0 left-0 "

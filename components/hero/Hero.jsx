@@ -10,14 +10,16 @@ const Hero = () => {
   return (
     <section className="myContainer h-[80vh]  md:h-[85vh] rounded-3xl overflow-hidden relative ">
       <video
-      key={"main-bg-video.mp4"}
-        src="/main-bg-video.mp4"
+      key={"main-bg-videoL.mp4"}
+      id="my-video"
+        src="/main-bg-videoL.webm"
         className="object-cover h-full w-full absolute top-0 left-0  "
         autoPlay
         muted
         alt="sea video"
         loop
         preload="auto"
+        
       ></video>
       <div className="h-full w-full absolute top-0 left-0 bg-black/60 "></div>
       <div className="absolute top-0 left-0 flex flex-col justify-between h-full">
@@ -42,7 +44,7 @@ const Hero = () => {
           style={nunito.style}
           className=" md:text-2xl  md:w-2/3 2xl:text-lg 3xl:text-xl font-normal  text-white 2xl:w-1/3 px-8 2xl:px-0 text-center mx-auto  md:mt-[270px] lg:mt-32 xl:mt-60 2xl:mt-0  3xl:mt-32 "
         >
-          Nestled above our family shop, our renovated apartments offer a perfect mix of tradition and comfort. With a welcoming terrace and just a short walk to Corfu’s sandy shores, you'll enjoy a relaxing escape{" "}
+          Nestled in the heart of Kassiopi, our apartments offer a perfect mix of tradition and comfort. With a welcoming terrace and just a short walk to Corfu’s sandy shores, you'll enjoy a relaxing escape{" "}
         </p>
         <div className="text-mwhite absolute top-[85%] lg:top-[87%]  xl:top-[85%] 2xl:top-[98%] -translate-y-full w-full flex justify-between capitalize px-5 text-sm md:text-lg xl:text-2xl">
           <p>Kassiopi</p>
