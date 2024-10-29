@@ -1,13 +1,7 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import { Parisienne } from "next/font/google";
 import Image from "next/image";
 
-
-const paris = Parisienne({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
 const About = () => {
   const [isMobile,setIsMobile] = useState(false)
@@ -30,7 +24,7 @@ const About = () => {
   return (
     <section id="about" className=" myContainer flex flex-col  mt-40 mb-20 xl:mb-0 ">
       <h2 data-scroll
-          data-scroll-speed={isMobile?"0":"0.1"} style={paris.style} className="text-6xl 2xl:text-8xl capitalize mx-auto">
+          data-scroll-speed={isMobile?"0":"0.1"}  className="text-6xl 2xl:text-8xl capitalize mx-auto">
         about us
       </h2>
       <div className="w-full relative flex flex-col gap-16 h-[128px] 3xl:h-[459px] mt-10  xl:mt-20">

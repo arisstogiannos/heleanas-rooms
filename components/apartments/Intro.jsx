@@ -2,12 +2,8 @@
 import React, { useEffect,  } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Parisienne } from "next/font/google";
 
-const paris = Parisienne({
-    subsets: ["latin"],
-    weight: ["400"],
-  });
+
 
 const Intro = ({containerRef}) => {
     gsap.registerPlugin(ScrollTrigger);
@@ -68,7 +64,7 @@ const text1 ="Our business is operating since 1975, but it's recently renovated 
 const text2 ="The apartment is located in the heart of the village,right opposite of the church and right adove our shop. In radius of 100 meter you can find supermarkets, bars, restaurants, shops, the harbour, the buzantine castle of Kassiopi and the bus station in case you want to visit other villages of Corfu."
   return (
     <div className="myContainer">
-      <h1 style={paris.style} className="capitalize text-5xl 2xl:text-8xl my-10 2xl:my-16 3xl:my-32 mx-auto word">the apartments</h1>
+      <h1  className="capitalize text-5xl 2xl:text-8xl my-10 2xl:my-16 3xl:my-32 mx-auto word">the apartments</h1>
         <div className="w-full mx-auto flex flex-col xl:flex-row text-base 2xl:text-xl 3xl:text-2xl">
         <p
             className="     leading-normal   h-fit relative   "
