@@ -260,7 +260,7 @@ const Guide = () => {
             >
               <Image
                 src={p.src}
-                alt="places"
+                alt={p.t}
                 width={700}
                 height={500}
                 className="object-cover w-[350px] h-[245px] lg:w-[700px] lg:h-[490px] "

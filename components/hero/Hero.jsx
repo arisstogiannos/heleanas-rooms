@@ -16,9 +16,10 @@ const Hero = () => {
         className="object-cover h-full w-full absolute top-0 left-0  "
         autoPlay
         muted
-        alt="sea video"
+        alt="corfu beach"
         loop
         preload="auto"
+        playsInline
         
       ></video>
       <div className="h-full w-full absolute top-0 left-0 bg-black/60 "></div>
@@ -47,8 +48,8 @@ const Hero = () => {
           Nestled in the heart of Kassiopi, our apartments offer a perfect mix of tradition and comfort. With a welcoming terrace and just a short walk to Corfu’s sandy shores, you'll enjoy a relaxing escape{" "}
         </p>
         <div className="text-mwhite absolute top-[85%] lg:top-[87%]  xl:top-[85%] 2xl:top-[98%] -translate-y-full w-full flex justify-between capitalize px-5 text-sm md:text-lg xl:text-2xl">
-          <p>Kassiopi</p>
-          <p>Corfu, Greece</p>
+          <h2>Kassiopi</h2>
+          <h1>Corfu, Greece</h1>
         </div>
 
         <div className="mx-auto font-light mt-20 lg:mt-10 xl:mt-32 2xl:mt-5 w-[250px] h-[90px] md:w-[300px] md:h-[82px] relative cursor-pointer ">

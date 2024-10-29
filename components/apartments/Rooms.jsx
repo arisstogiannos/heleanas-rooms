@@ -14,28 +14,28 @@ const Rooms = ({ scrollContainer, setCurr }) => {
       title: "room 1",
       src: "/apartments/room1/room1-7.webp",
       desc: "The studio has a private bathroom and its own front door. In the studio you will find 2 single beds that they are designed to fit perfectly together, so you have the option to use them as double bed. The fridge and the kitchen equipment allows you to prepare breakfast or cold dishes during the day.",
-      bgcolor: "#6c492d",
+      bgcolor: "#2d4739",
       price:'60$/night'
     },
     {
       title: "room 2",
       src: "/apartments/room2/room2-1.webp",
       desc: "This apartment is comprised of 1 living room, 2 separate bedrooms and 1 bathroom with a shower. Guests will find a stovetop, a refrigerator, kitchenware and an oven in the fully equipped kitchen. The unit offers 4 beds.",
-      bgcolor: "#735238",
+      bgcolor: "#4e787b",
       price:'80$/night'
     },
     {
       title: "room 3",
       src: "/apartments/room3/room3-1.webp",
       desc: "This apartment is comprised of 1 bedroom for 2 people and 1 bathroom with a shower. Guests will find a stovetop, a refrigerator, kitchenware and an oven in the fully equipped kitchen. ",
-      bgcolor: "#7e6048",
+      bgcolor: "#526749",
       price:'90$/night'
     },
     {
       title: "room 4",
       src: "/apartments/room4/room4-1.webp",
       desc: "The studio has a private bathroom and its own front door. In the studio you will a special made wooden double bed with hidden lights. It has been renovated (2019) with personal work of my family and decorated with art made by corfiot artists.",
-      bgcolor: "#886e58",
+      bgcolor: "#2f3e46",
       price:'80$/night'
     },
   ];
@@ -50,7 +50,9 @@ const Rooms = ({ scrollContainer, setCurr }) => {
   });
 
   const [currRoom, setCurrRoom] = useState(-1);
+  const [prevRoomWasOne, setPrevRoomWasOne] = useState(true);
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if(currRoom==2){setPrevRoomWasOne(false)}else if(currRoom==0){setPrevRoomWasOne(true)}
     setCurrRoom(Math.floor(latest * 5) == 5 ? 4 : Math.floor(latest * 5));
     setCurr(Math.floor(latest * 5) == 5 ? 4 : Math.floor(latest * 5));
   });
@@ -272,11 +274,11 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                         : "inset(100% 0 0 0)",
                   }}
                   key={i}
-                  className={`transition-all ${currRoom-1===0?'delay-1000':''} duration-700 ease-out  w-full h-full absolute top-0 left-0`}
+                  className={`transition-all ${(currRoom-1===0&&prevRoomWasOne)?'delay-1000':''} duration-700 ease-out  w-full h-full absolute top-0 left-0`}
                 >
                   <Image
                     priority
-                    alt="image"
+                    alt="room to let in kassiopi corfu greece"
                     key={i}
                     src={r.src}
                     width={720}
@@ -291,12 +293,12 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                           ? "inset(0 0 0 0)"
                           : "inset(100% 0 0 0)",
                     }}
-                    className={`transition-all ${currRoom-1===0?'delay-1000':''} duration-700 ease-out absolute top-0 left-0 w-full h-full bg-black/30`}
+                    className={`transition-all ${(currRoom-1===0&&prevRoomWasOne)?'delay-1000':''} duration-700 ease-out absolute top-0 left-0 w-full h-full bg-black/30`}
                   ></div>
                 </div>
                 <h2
                   style={{ opacity: currRoom - 1 == i ? 1 : 0 }}
-                  className={`transition-all ${currRoom-1===0?'delay-1000':''} duration-700 z-50 absolute font-medium top-full -translate-y-1/2  2xl:-translate-y-2/3 2xl:-translate-x-9 left-5 xsm:left-0 text-6xl lg:text-9xl xl:text-8xl 2xl:text-9xl capitalize`}
+                  className={`transition-all ${(currRoom-1===0&&prevRoomWasOne)?'delay-1000':''} duration-700 z-50 absolute font-medium top-full -translate-y-1/2  2xl:-translate-y-2/3 2xl:-translate-x-9 left-5 xsm:left-0 text-6xl lg:text-9xl xl:text-8xl 2xl:text-9xl capitalize`}
                 >
                   {r.title}
                 </h2>
@@ -322,7 +324,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                               opacity: currRoom - 1 === i ? 1 : 0,
                             }}
                             transition={
-                              currRoom-1===0?{
+                              (currRoom-1===0&&prevRoomWasOne)?{
                                 duration: 0.7,
                                 delay: 1.3 + 0.009 * index,
                                 ease: [0, 0.55, 0.45, 1],
@@ -356,7 +358,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                               opacity: currRoom - 1 === i ? 1 : 0,
                             }}
                             transition={
-                              currRoom-1===0?{
+                              (currRoom-1===0&&prevRoomWasOne)?{
                                 duration: 0.7,
                                 delay: 2 ,
                                 ease: [0, 0.55, 0.45, 1],
@@ -413,7 +415,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
               clipPath:
                 currRoom - 1 >= i ? "inset(0 0 0 0)" : "inset(100% 0 0 0)",
             }}
-            className={`absolute top-0 w-full h-screen left-0   -z-50 transition-all duration-700 ${currRoom-1===0?'delay-700':'delay-300'} `}
+            className={`absolute top-0 w-full h-screen left-0   -z-50 transition-all duration-700 ${(currRoom-1===0&&prevRoomWasOne)?'delay-700':'delay-300'} `}
           ></div>
         );
       })}

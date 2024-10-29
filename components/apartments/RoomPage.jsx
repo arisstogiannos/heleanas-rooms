@@ -1,9 +1,7 @@
-"use client";
 import Amentites from "@/components/apartments/Amentites";
 import Gallery from "@/components/apartments/Gallery";
 import { Nunito } from "next/font/google";
-import Image from "next/image";
-import { React, useEffect } from "react";
+import { React } from "react";
 
 const nunito = Nunito({
   subsets: ["latin"],

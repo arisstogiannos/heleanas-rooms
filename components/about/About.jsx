@@ -74,7 +74,7 @@ const About = () => {
           className="w-[276px] h-[368px]  2xl:w-[576px] 2xl:h-[768px] relative xl:absolute 2xl:-top-20 3xl:-top-20 md:-top-1/3 xl:right-0"
         >
           <Image
-          alt="img"
+          alt="kassiopi center"
             src={"/about/sky.jpg"}
             width={576}
             height={768}

@@ -73,7 +73,7 @@ const Room3 = () => {
   const text2 ="The studio has a private bathroom and its own front door. In the studio you will find 2 single beds that they are designed to fit perfectly together, so you have the option to use them as double bed. The fridge and the kitchen equipment allows you to prepare breakfast or cold dishes during the day. "
   
   return (
-    <RoomPage title={'room 3'} text1={text1} text2={text2} photos={rooms} num={[1,2,1]} color={"#7e6048"} />
+    <RoomPage title={'room 3'} text1={text1} text2={text2} photos={rooms} num={[1,2,1]} color={"#526749"} />
   )
 }
 

@@ -75,7 +75,7 @@ const Room2 = () => {
 
   
   return (
-    <RoomPage title={'room 2'} text1={text1} text2={text2} num={num} photos={rooms} color={"#735238"} />
+    <RoomPage title={'room 2'} text1={text1} text2={text2} num={num} photos={rooms} color={"#4e787b"} />
   );
 };
 
