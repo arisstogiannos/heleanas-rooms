@@ -248,7 +248,7 @@ const Guide = () => {
       className="w-full flex flex-col slider cursor-none sliderCursor max-2xl:h-screen overflow-hidden bg-mBrown"
     >
       <div className="w-full ml-5 2xl:ml-20 mt-0  ">
-        <div className="flex gap-28 2xl:gap-48 mt-20 slider-wrapper ">
+        <div className="flex gap-28 2xl:gap-48 mt-10 xsm:mt-20 slider-wrapper ">
           {places.map((p, i) => (
             <motion.div
             initial={{clipPath: "inset(0 100% 0 0)",}}
@@ -287,6 +287,7 @@ const Guide = () => {
           width={100}
           height={100}
           alt="arrowL"
+          className="max-xsm:size-20"
         />
         <p className="text-white text-5xl leading-none">{count}/6</p>
         <Image
@@ -295,9 +296,10 @@ const Guide = () => {
           width={100}
           height={100}
           alt="arrowR"
+          className="max-xsm:size-20"
         />
       </div>
-      <div className="pointer-events-none w-full flex justify-between border-t-white border-t-2 mt-20 xl:mt-32 capitalize items-center py-10 xl:px-20">
+      <div className="pointer-events-none w-full flex justify-between border-t-white border-t-2 mt-10 xsm:mt-20 xl:mt-32 capitalize items-center py-5 xsm:py-10 xl:px-20">
         <h2 className="text-5xl lg:text-8xl mx-auto xl:mx-0 text-white text-nowrap">
           places to go
         </h2>

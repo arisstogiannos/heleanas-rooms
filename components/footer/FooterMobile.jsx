@@ -19,7 +19,7 @@ const FooterMobile = () => {
   return (
     <footer className=" bg-mBrown w-full text-white lg:hidden flex flex-col myContainer overflow-hidden">
       <p className="capitalize text-5xl mx-auto  border-b-2 w-full text-center py-10">
-        Heleana's rooms
+        Helena's rooms
       </p>
       <ul className="flex flex-col mx-auto items-center gap-4 py-10 text-2xl capitalize border-b-2 w-full">
         {sociallinks.map((l, i) => (

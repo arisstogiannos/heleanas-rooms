@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center myContainer py-8 ">
       <p className="capitalize text-xl font-medium sm:text-xl lg:text-3xl z-[910]">
-        Heleana's rooms
+        Helena's rooms
       </p>
       <div
         onClick={() => setIsOpen(!isOpen)}

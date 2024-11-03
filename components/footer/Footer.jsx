@@ -20,7 +20,7 @@ const Footer = () => {
     <footer className=' bg-mBrown w-full text-white max-lg:hidden'>
         <div className='myContainer flex flex-col overflow-hidden'>
             <div className='flex justify-between items-center mt-20  '>
-                <div><p className='text-2xl border-b-2'>info@heleans-rooms.gr</p></div>
+                <div><p className='text-2xl border-b-2'>info@helenas-rooms.gr</p></div>
                 <div>
                     <h3 className='capitalize text-4xl'>sitemap</h3>
                     <ul className='flex flex-col gap-2 items-end capitalize mt-4 text-2xl'>
@@ -39,7 +39,7 @@ const Footer = () => {
                     </div>
             </div>
             <div className='py-10 flex justify-between items-center'>
-                <p className='capitalize text-4xl'>Heleana's rooms</p>
+                <p className='capitalize text-4xl'>Helena's rooms</p>
                 <ul className='flex gap-7 text-xl xl:text-2xl capitalize'>
                     {sociallinks.map((l,i)=>(
                         <li key={i}><a className='text-white/60 hover:text-white transition-colors' href={l.href}>{l.title}</a></li>

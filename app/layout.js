@@ -1,4 +1,3 @@
-import Loader from "@/components/global/Loader";
 import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
@@ -8,7 +7,7 @@ import Footer from "@/components/footer/Footer";
 import FooterMobile from "@/components/footer/FooterMobile";
 
 export const metadata = {
-  title: "Heleanas Rooms",
+  title: "Helena's Rooms",
   description: "Nestled in the heart of Kassiopi, our apartments offer a perfect mix of tradition and comfort. With a welcoming terrace and just a short walk to Corfu’s sandy shores, you'll enjoy a relaxing escape",
 };
 

@@ -60,7 +60,7 @@ const About = () => {
         <p
           data-scroll
           data-scroll-speed={isMobile?"0":"0.4"}
-          className="text-lg 2xl:text-5xl font-normal lg:font-light capitalize md:text-nowrap xl:absolute xl:left-0 xl:top-0 mix-blend-difference text-mwhite"
+          className="xsm:text-lg 2xl:text-5xl font-normal lg:font-light capitalize md:text-nowrap xl:absolute xl:left-0 xl:top-0 mix-blend-difference text-mwhite"
         >
           The business was running under my grandmother Helena<br className="max-md:hidden"/>
           since 1975, with personal work and a lot

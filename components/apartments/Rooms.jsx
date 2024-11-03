@@ -277,7 +277,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                   className={`transition-all ${(currRoom-1===0&&prevRoomWasOne)?'delay-1000':''} duration-700 ease-out  w-full h-full absolute top-0 left-0`}
                 >
                   <Image
-                    priority
+                    
                     alt="room to let in kassiopi corfu greece"
                     key={i}
                     src={r.src}
@@ -305,7 +305,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                 <div className="absolute top-full lg:translate-y-full xl:translate-y-1/2 translate-y-[20%] 2xl:translate-y-0 2xl:left-full 2xl:-translate-x-10 2xl:top-0 flex flex-col">
                   <p
                     style={nunito.style}
-                    className=" left-5 xsm:left-0 top-0 w-[90%] xsm:w-full xl:w-[700px] text-lg xsm:text-xl lg:text-3xl    leading-normal font-normal   h-fit relative z-50   "
+                    className=" left-5 xsm:left-0 top-0 w-[90%] xsm:w-full xl:w-[700px]  xsm:text-xl lg:text-3xl    leading-normal font-normal   h-fit relative z-50   "
                   >
                     {r.desc.split(" ").map((word, index) => {
                       return (
@@ -386,7 +386,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
         initial={{y:60,opacity:0}} transition={{ duration:0.5,delay:2.4,ease: [0, 0.55, 0.45, 1]}} animate={currRoom-1>=0?{y:0,opacity:1}:{y:40,opacity:0}}
           href={`/rooms/room${currRoom}`}
           style={nunito.style}
-          className="text-xl xsm:text-2xl lg:text-4xl  cursor-pointer text-black border-b-[2px] xsm:border-b-[3px] font-medium border-b-black pt-2 pb-0   capitalize flex items-center gap-8 xsm:gap-16 w-fit h-fit xl:mt-72   xsm:mt-[350px] mt-72  lg:mr-auto 2xl:hidden z-10"
+          className="text-xl xsm:text-2xl lg:text-4xl  cursor-pointer text-black border-b-[2px] xsm:border-b-[3px] font-medium border-b-black pt-2 pb-0   capitalize flex items-center gap-8 xsm:gap-16 w-fit h-fit xl:mt-72   xsm:mt-[350px] mt-[40vh]  lg:mr-auto 2xl:hidden z-10"
           >
           take a look{" "}
           <svg

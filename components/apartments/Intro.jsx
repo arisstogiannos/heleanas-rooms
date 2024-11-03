@@ -9,6 +9,9 @@ const Intro = ({containerRef}) => {
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(()=>{
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 401px)", () => {
         const containerR = containerRef.current;
         const tltext = gsap.timeline({
             scrollTrigger: {
@@ -40,7 +43,7 @@ const Intro = ({containerRef}) => {
             //   pin: true,
               start:"top+=350px center",
               end:"top+=600px center",
-              markers: false, // Show markers for debugging
+              markers: true, // Show markers for debugging
               toggleActions: "play reverse play reverse"
             },
           });
@@ -57,7 +60,58 @@ const Intro = ({containerRef}) => {
               ease: "circ.out",
               stagger: 0.01, // Adjust the delay between each word's appearance
             }
-          );
+          );})
+
+          mm.add("(max-width: 400px)", () => {
+            const containerR = containerRef.current;
+            const tltext = gsap.timeline({
+                scrollTrigger: {
+                  trigger: containerR,
+                //   pin: true,
+                  start:"top+=200px center",
+                  end:"top+=600px center",
+                  markers: false, // Show markers for debugging
+                  toggleActions: "play reverse play reverse"
+                },
+              });
+              tltext.fromTo(
+                ".word",
+                {
+                  y: 40,
+                  opacity: 0,
+                },
+                {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.3, // Adjust the duration for each word's entrance
+                  ease: "circ.out",
+                  stagger: 0.01, // Adjust the delay between each word's appearance
+                }
+              );
+              const tltext2 = gsap.timeline({
+                scrollTrigger: {
+                  trigger: containerR,
+                //   pin: true,
+                  start:"top+=300px center",
+                  end:"top+=600px center",
+                  markers: false, // Show markers for debugging
+                  toggleActions: "play reverse play reverse"
+                },
+              });
+              tltext2.fromTo(
+                ".word2",
+                {
+                  y: 40,
+                  opacity: 0,
+                },
+                {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.3, // Adjust the duration for each word's entrance
+                  ease: "circ.out",
+                  stagger: 0.01, // Adjust the delay between each word's appearance
+                }
+              );})
            
     },[])
 const text1 ="Our business is operating since 1975, but it's recently renovated (2017), with personal work from my family .The rooms are decorated with wood art made by local artists. It consists of one apartment and three studios, all in the same floor with a beautiful terrace in common. The tarrace is equipped with an umbrella and chairs, if you want to enjoy the sun or a BBQ if you are in the mood to organise your own meal."

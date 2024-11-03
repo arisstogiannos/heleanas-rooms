@@ -24,7 +24,7 @@ const Hero = () => {
       ></video>
       <div className="h-full w-full absolute top-0 left-0 bg-black/60 "></div>
       <div className="absolute top-0 left-0 flex flex-col justify-between h-full">
-        <div className=" flex w-full mt-20 2xl:mt-16 3xl:mt-20 ">
+        <div className=" flex w-full mt-10 xsm:mt-20 2xl:mt-16 3xl:mt-20 ">
           <div className="w-1/3 flex flex-col justify-between  pt-5 pb-4 lg:pt-12 lg:pb-10 2xl:pt-8 2xl:pb-6 3xl:pt-12 3xl:pb-10">
             <hr className="border-t-4 border-t-mwhite rounded-tr-full rounded-br-full " />
             <hr className="border-t-4 border-t-mwhite rounded-tr-full rounded-br-full " />
@@ -43,7 +43,7 @@ const Hero = () => {
           
         <p
           style={nunito.style}
-          className=" md:text-2xl  md:w-2/3 2xl:text-lg 3xl:text-xl font-normal  text-white 2xl:w-1/3 px-8 2xl:px-0 text-center mx-auto  md:mt-[270px] lg:mt-32 xl:mt-60 2xl:mt-0  3xl:mt-32 "
+          className=" md:text-2xl  md:w-2/3 2xl:text-lg 3xl:text-xl font-light xsm:font-normal  text-white 2xl:w-1/3 px-8 2xl:px-0 text-center mx-auto  md:mt-[270px] lg:mt-32 xl:mt-60 2xl:mt-0  3xl:mt-32 "
         >
           Nestled in the heart of Kassiopi, our apartments offer a perfect mix of tradition and comfort. With a welcoming terrace and just a short walk to Corfu’s sandy shores, you'll enjoy a relaxing escape{" "}
         </p>
@@ -52,7 +52,7 @@ const Hero = () => {
           <h1>Corfu, Greece</h1>
         </div>
 
-        <div className="mx-auto font-light mt-20 lg:mt-10 xl:mt-32 2xl:mt-5 w-[250px] h-[90px] md:w-[300px] md:h-[82px] relative cursor-pointer ">
+        <div className="mx-auto font-light mt-10 xsm:mt-20 lg:mt-10 xl:mt-32 2xl:mt-5 w-[250px] h-[90px] md:w-[300px] md:h-[82px] relative cursor-pointer ">
           <svg
             width="200"
             height="172"

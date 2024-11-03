@@ -1,13 +1,12 @@
 'use client'
 import gsap from 'gsap'
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 
 const Loader = ({setFlag}) => {
 const comp = useRef(null)
 
 useLayoutEffect(()=>{
-  const vid = document.getElementById('my-video')
-  vid.addEventListener('canplaythrough',()=>console.log('videoloaded loader'))
+  
     let ctx = gsap.context(()=>{
         const tl = gsap.timeline()
         tl.fromTo(

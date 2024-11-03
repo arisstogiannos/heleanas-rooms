@@ -6,10 +6,10 @@ const Amentites = () => {
     {
       title: "bathroom",
       items: [
-        ["hot water", "/apartments/amentites/refrigerator.svg"],
-        ["towels", "/apartments/amentites/dish.svg"],
-        ["shampoo", "/apartments/amentites/dish.svg"],
-        ["hair dryer", "/apartments/amentites/coffee-maker.svg"],
+        ["hot water", "/apartments/amentites/hotwater.svg"],
+        ["towels", "/apartments/amentites/towels.svg"],
+        ["shampoo", "/apartments/amentites/sampoo.svg"],
+        ["hair dryer", "/apartments/amentites/hairdryer.svg"],
       ],
     },
     {
