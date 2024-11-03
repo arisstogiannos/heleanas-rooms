@@ -43,7 +43,7 @@ const Intro = ({containerRef}) => {
             //   pin: true,
               start:"top+=350px center",
               end:"top+=600px center",
-              markers: true, // Show markers for debugging
+              markers: false, // Show markers for debugging
               toggleActions: "play reverse play reverse"
             },
           });
