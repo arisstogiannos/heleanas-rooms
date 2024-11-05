@@ -277,7 +277,7 @@ const Rooms = ({ scrollContainer, setCurr }) => {
                   className={`transition-all ${(currRoom-1===0&&prevRoomWasOne)?'delay-1000':''} duration-700 ease-out  w-full h-full absolute top-0 left-0`}
                 >
                   <Image
-                    
+                    priority
                     alt="room to let in kassiopi corfu greece"
                     key={i}
                     src={r.src}

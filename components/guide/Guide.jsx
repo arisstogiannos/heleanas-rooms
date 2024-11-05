@@ -18,39 +18,28 @@ const Guide = () => {
     {
       src: "/places/mpataria.jpg",
       t: "Mpataria Beach",
-      d: "One of the most beautiful beaches in northern Corfu located just 400 meters away from Helena’s rooms",
-      m: "230m",
+      d: "One of the most beautiful beaches in northern Corfu located just 550 meters away from Helena’s rooms",
+      m: "550m",
     },
     {
       src: "/places/kalamionas-beach.jpg",
       t: "Kalamionas Beach",
       d: "A serene spot for sunbathing and enjoying the clear waters of Corfu",
-      m: "230m",
+      m: "600m",
     },
     {
       src: "/places/kassiopi.jpg",
       t: "Kassiopi",
       d: "A charming village with picturesque views and historical sites in Corfu",
-      m: "230m",
+      m: "200m",
     },
     {
-      src: "/places/mpataria.jpg",
-      t: "Mpataria Beach",
+      src: "/places/erimitis2.jpg",
+      t: "Aulaki",
       d: "One of the most beautiful beaches in northern Corfu located just 400 meters away from Helena’s rooms",
-      m: "230m",
+      m: "3km",
     },
-    {
-      src: "/places/kalamionas-beach.jpg",
-      t: "Kalamionas Beach",
-      d: "A serene spot for sunbathing and enjoying the clear waters of Corfu",
-      m: "230m",
-    },
-    {
-      src: "/places/kassiopi.jpg",
-      t: "Kassiopi",
-      d: "A charming village with picturesque views and historical sites in Corfu",
-      m: "230m",
-    },
+   
     // Duplicates removed for clarity
   ];
 
