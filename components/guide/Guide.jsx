@@ -36,7 +36,7 @@ const Guide = () => {
     {
       src: "/places/erimitis2.jpg",
       t: "Aulaki",
-      d: "One of the most beautiful beaches in northern Corfu located just 400 meters away from Helena’s rooms",
+      d: "A Beautiful must go beach in Northern Corfu",
       m: "3km",
     },
    
@@ -293,7 +293,7 @@ const Guide = () => {
           places to go
         </h2>
         <div className="hidden xl:block">
-          <p className="text-white text-8xl">{count}/6</p>
+          <p className="text-white text-8xl">{count}/{places.length}</p>
         </div>
       </div>
     </section>
